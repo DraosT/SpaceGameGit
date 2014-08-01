@@ -1,3 +1,5 @@
+//Author - DraosT
+
 package com.game.src.main;
 
 import java.awt.Canvas;
