@@ -37,6 +37,8 @@ public class Game extends Canvas implements Runnable
 	private Controller c;
 	private Textures tex;
 	
+	boolean up, down, left, right;
+	
 	public void init()
 	{
 		requestFocus();
@@ -134,6 +136,32 @@ public class Game extends Canvas implements Runnable
 	{
 		p.tick();
 		c.tick();
+		
+		if(up == true)
+		{
+			p.setVelY(-5);
+		}
+		if(down == true)
+		{
+			p.setVelY(5);
+		}
+		 if(up == false && down == false)
+		{
+			p.setVelY(0);
+		}
+		if(left == true)
+		{
+			p.setVelX(-5);
+		}
+		if(right == true)
+		{
+			p.setVelX(5);
+		}
+		 if(left == false && right == false)
+		{
+			p.setVelX(0);
+		}
+		
 	}
 	
 	private void render()
@@ -161,19 +189,19 @@ public class Game extends Canvas implements Runnable
 		
 		if(key == KeyEvent.VK_RIGHT)
 		{
-			p.setVelX(5);
+			right = true;
 		}
 		else if(key == KeyEvent.VK_LEFT)
 		{
-			p.setVelX(-5);
+			left = true;
 		}
 		else if(key == KeyEvent.VK_DOWN)
 		{
-			p.setVelY(5);
+			down = true;
 		}
 		else if(key == KeyEvent.VK_UP)
 		{
-			p.setVelY(-5);
+			up = true;
 		}
 		if(key == KeyEvent.VK_SPACE && !is_shooting)
 		{
@@ -188,19 +216,19 @@ public class Game extends Canvas implements Runnable
 		
 		if(key == KeyEvent.VK_RIGHT)
 		{
-			p.setVelX(0);
+			right = false;
 		}
 		else if(key == KeyEvent.VK_LEFT)
 		{
-			p.setVelX(0);
+			left = false;
 		}
 		else if(key == KeyEvent.VK_DOWN)
 		{
-			p.setVelY(0);
+			down = false;
 		}
 		else if(key == KeyEvent.VK_UP)
 		{
-			p.setVelY(0);
+			up = false;
 		}
 		else if(key == KeyEvent.VK_SPACE)
 		{
