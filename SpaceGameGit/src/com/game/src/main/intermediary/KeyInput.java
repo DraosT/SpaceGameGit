@@ -1,7 +1,9 @@
-package com.game.src.main;
+package com.game.src.main.intermediary;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+
+import com.game.src.main.Game;
 
 public class KeyInput extends KeyAdapter
 {

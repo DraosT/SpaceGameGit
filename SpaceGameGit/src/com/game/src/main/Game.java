@@ -16,6 +16,12 @@ import javax.swing.JFrame;
 
 import com.game.src.main.classes.EntityA;
 import com.game.src.main.classes.EntityB;
+import com.game.src.main.entities.Bullet;
+import com.game.src.main.entities.Player;
+import com.game.src.main.gfx.BufferedImageLoader;
+import com.game.src.main.gfx.Textures;
+import com.game.src.main.intermediary.Controller;
+import com.game.src.main.intermediary.KeyInput;
 
 public class Game extends Canvas implements Runnable
 {

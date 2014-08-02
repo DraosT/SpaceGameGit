@@ -1,10 +1,13 @@
-package com.game.src.main;
+package com.game.src.main.entities;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.Random;
 
+import com.game.src.main.Game;
 import com.game.src.main.classes.EntityB;
+import com.game.src.main.gfx.Textures;
+import com.game.src.main.intermediary.GameObject;
 
 public class Enemy extends GameObject implements EntityB
 {

@@ -1,4 +1,4 @@
-package com.game.src.main;
+package com.game.src.main.logic;
 
 import java.util.LinkedList;
 

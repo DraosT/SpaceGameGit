@@ -1,4 +1,4 @@
-package com.game.src.main;
+package com.game.src.main.intermediary;
 
 import java.awt.Graphics;
 import java.util.LinkedList;
@@ -6,6 +6,8 @@ import java.util.Random;
 
 import com.game.src.main.classes.EntityA;
 import com.game.src.main.classes.EntityB;
+import com.game.src.main.entities.Enemy;
+import com.game.src.main.gfx.Textures;
 
 public class Controller
 {

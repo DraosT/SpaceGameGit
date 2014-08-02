@@ -1,9 +1,11 @@
-package com.game.src.main;
+package com.game.src.main.entities;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
 import com.game.src.main.classes.EntityA;
+import com.game.src.main.gfx.Textures;
+import com.game.src.main.intermediary.GameObject;
 
 public class Player extends GameObject implements EntityA
 {
