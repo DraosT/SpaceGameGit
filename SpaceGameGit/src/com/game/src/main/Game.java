@@ -1,5 +1,5 @@
 //Author - DraosT
-//Version 0.3
+//Version 0.4
 
 package com.game.src.main;
 
@@ -10,8 +10,12 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.LinkedList;
 
 import javax.swing.JFrame;
+
+import com.game.src.main.classes.EntityA;
+import com.game.src.main.classes.EntityB;
 
 public class Game extends Canvas implements Runnable
 {
@@ -37,6 +41,9 @@ public class Game extends Canvas implements Runnable
 	private Controller c;
 	private Textures tex;
 	
+	public LinkedList<EntityA> ea;
+	public LinkedList<EntityB> eb;
+	
 	boolean up, down, left, right;
 	
 	public void init()
@@ -60,6 +67,9 @@ public class Game extends Canvas implements Runnable
 		
 		p = new Player(200, 200, tex);
 		c = new Controller(tex);
+		
+		ea = c.getEa();
+		eb = c.getEb();
 		
 		c.createEnemy(enemy_count);
 	}
@@ -206,7 +216,7 @@ public class Game extends Canvas implements Runnable
 		if(key == KeyEvent.VK_SPACE && !is_shooting)
 		{
 			is_shooting = true;
-			c.addEntity(new Bullet(p.getX(), p.getY(), tex));
+			c.addEntity(new Bullet(p.getX(), p.getY(), tex, this));
 		}
 	}
 	

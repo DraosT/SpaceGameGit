@@ -4,11 +4,16 @@ import java.awt.Graphics;
 import java.util.LinkedList;
 import java.util.Random;
 
+import com.game.src.main.classes.EntityA;
+import com.game.src.main.classes.EntityB;
+
 public class Controller
 {
-	private LinkedList<Entity> e = new LinkedList<Entity>();
+	private LinkedList<EntityA> ea = new LinkedList<EntityA>();
+	private LinkedList<EntityB> eb = new LinkedList<EntityB>();
 
-	Entity ent;
+	EntityA enta;
+	EntityB entb;
 	private Textures tex;
 	Random r = new Random();
 
@@ -27,32 +32,78 @@ public class Controller
 	
 	public void tick()
 	{
-		for(int i = 0; i < e.size(); i++)
+		//A CLASS
+		for(int i = 0; i < ea.size(); i++)
 		{
-			ent = e.get(i);
-			
-			ent.tick();
+			enta = ea.get(i);	
+			enta.tick();
+		}
+		
+		//B CLASS
+		for(int i = 0; i < eb.size(); i++)
+		{
+			entb = eb.get(i);
+			entb.tick();
 		}
 	}
 	
 	public void render(Graphics g)
 	{
-		for(int i = 0; i < e.size(); i++)
+		//A CLASS
+		for(int i = 0; i < ea.size(); i++)
 		{
-			ent = e.get(i);
-			
-			ent.render(g);
+			enta = ea.get(i);
+			enta.render(g);
 		}
+		
+		//B CLASS
+		for(int i = 0; i < eb.size(); i++)
+		{
+			entb = eb.get(i);
+			entb.render(g);
+		}		
 	}
 	
-	public void addEntity(Entity block)
+	public void addEntity(EntityA block)
 	{
-		e.add(block);
+		ea.add(block);
 	}
 	
-	public void removeEntity(Entity block)
+	public void removeEntity(EntityA block)
 	{
-		e.remove(block);
+		ea.remove(block);
 	}
+	
+	public void addEntity(EntityB block)
+	{
+		eb.add(block);
+	}
+	
+	public void removeEntity(EntityB block)
+	{
+		eb.remove(block);
+	}
+
+	public LinkedList<EntityA> getEa()
+	{
+		return ea;
+	}
+
+	public void setEa(LinkedList<EntityA> ea)
+	{
+		this.ea = ea;
+	}
+
+	public LinkedList<EntityB> getEb()
+	{
+		return eb;
+	}
+
+	public void setEb(LinkedList<EntityB> eb)
+	{
+		this.eb = eb;
+	}
+	
+	
 }
 
