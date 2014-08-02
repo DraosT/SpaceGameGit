@@ -5,6 +5,7 @@ import java.awt.Rectangle;
 
 import com.game.src.main.Game;
 import com.game.src.main.classes.EntityA;
+import com.game.src.main.gfx.Animation;
 import com.game.src.main.gfx.Textures;
 import com.game.src.main.intermediary.GameObject;
 import com.game.src.main.logic.Physics;
@@ -13,12 +14,15 @@ public class Bullet extends GameObject implements EntityA
 {
 	private Textures tex;
 	private Game game;
+	Animation anim;
 	
 	public Bullet(double x, double y, Textures tex, Game game)
 	{
 		super(x, y);
 		this.tex = tex;
 		this.game = game;
+		
+		anim = new Animation(1, tex.missile[0], tex.missile[1], tex.missile[2]);
 	}
 	
 	public void tick()
@@ -29,11 +33,13 @@ public class Bullet extends GameObject implements EntityA
 		{
 			System.out.println("Collision Detected");
 		}
+		
+		anim.runAnimation();
 	}
 	
 	public void render(Graphics g)
 	{
-		g.drawImage(tex.missile, (int)x, (int)y, null);
+		anim.drawAnimation(g, x, y, 0);
 	}
 	
 	public Rectangle getBounds()
