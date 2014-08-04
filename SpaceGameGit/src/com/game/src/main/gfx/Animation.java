@@ -19,13 +19,14 @@ public class Animation
 	public Animation(int speed, LinkedList<BufferedImage> img)
 	{
 		this.speed = speed;
-		this.img = (BufferedImage[]) img.toArray(new BufferedImage[img.size()]);
+		this.img = img.toArray(new BufferedImage[img.size()]);
 		frames = img.size();
 	}
 
 	public void runAnimation()
 	{
 		index++;
+		
 		if (index > speed)
 		{
 			index = 0;
@@ -36,12 +37,12 @@ public class Animation
 	public void nextFrame()
 	{
 			currentImg = img[count];
-
-			if(count < img.length - 1)
+			
+			if(count < img.length)
 				count++;
-
-			if (count > frames)
+			if (count == img.length)
 				count = 0;
+			
 	}
 
 	public void drawAnimation(Graphics g, double x, double y, int offset)

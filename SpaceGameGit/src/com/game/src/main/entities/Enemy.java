@@ -32,8 +32,9 @@ public class Enemy extends GameObject implements EntityB
 		this.game = game;
 		this.c = c;
 		
-		for(int i = 0; i < 3; i++)
+		for(int i = 0; i < tex.enemy.length; i++)
 			img.add(tex.enemy[i]);
+		
 		anim = new Animation(5, img);
 	}
 	
@@ -51,7 +52,7 @@ public class Enemy extends GameObject implements EntityB
 		if((Physics.Collision(this, game.ea)))
 		{
 			c.removeEntity(this);
-			c.removeEntity(game.ea.get(Physics.CollisionIndex()));
+			c.removeEntity(Physics.tempBullet);
 			game.setEnemy_killed(game.getEnemy_killed() + 1);
 		}
 		

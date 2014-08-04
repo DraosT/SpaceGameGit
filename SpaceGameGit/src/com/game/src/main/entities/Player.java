@@ -26,7 +26,7 @@ public class Player extends GameObject implements EntityA
 		
 		this.tex = tex;
 		
-		for(int i = 0; i < 3; i++)
+		for(int i = 0; i < tex.player.length; i++)
 			img.add(tex.player[i]);
 		
 		anim = new Animation(5, img);

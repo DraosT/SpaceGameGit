@@ -4,17 +4,17 @@ import java.util.LinkedList;
 
 import com.game.src.main.classes.EntityA;
 import com.game.src.main.classes.EntityB;
+import com.game.src.main.entities.Bullet;
 
 public class Physics
-{	
-	private static int num;
+{		
+	public static Bullet tempBullet;
 	
 	public static boolean Collision(EntityA enta, LinkedList<EntityB> entb)
 	{
 		for(int i = 0; i < entb.size(); i++)
 		{
 			if(enta.getBounds().intersects(entb.get(i).getBounds()))
-				num = i;
 				return true;
 		}
 		
@@ -27,16 +27,11 @@ public class Physics
 		{
 			if(entb.getBounds().intersects(enta.get(i).getBounds()))
 			{
-				num = i;
+				tempBullet = (Bullet)enta.get(i);
 				return true;
 			}
 		}
 		
 		return false;
-	}
-	
-	public static int CollisionIndex()
-	{
-		return num;
 	}
 }

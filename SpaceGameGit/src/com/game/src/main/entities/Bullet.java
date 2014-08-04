@@ -25,7 +25,7 @@ public class Bullet extends GameObject implements EntityA
 		this.tex = tex;
 		this.game = game;
 		
-		for(int i = 0; i < 3; i++)
+		for(int i = 0; i < tex.missile.length; i++)
 			img.add(tex.missile[i]);
 		
 		anim = new Animation(1, img);
@@ -39,7 +39,6 @@ public class Bullet extends GameObject implements EntityA
 		{
 			System.out.println("Collision Detected");
 		}
-		
 		anim.runAnimation();
 	}
 	
