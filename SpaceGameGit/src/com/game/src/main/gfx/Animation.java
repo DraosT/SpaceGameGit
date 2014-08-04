@@ -19,7 +19,7 @@ public class Animation
 	public Animation(int speed, LinkedList<BufferedImage> img)
 	{
 		this.speed = speed;
-		this.img = (BufferedImage[]) img.toArray();
+		this.img = (BufferedImage[]) img.toArray(new BufferedImage[img.size()]);
 		frames = img.size();
 	}
 
