@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.util.LinkedList;
 import java.util.Random;
 
+import com.game.src.main.Game;
 import com.game.src.main.classes.EntityA;
 import com.game.src.main.classes.EntityB;
 import com.game.src.main.entities.Enemy;
@@ -18,17 +19,19 @@ public class Controller
 	EntityB entb;
 	private Textures tex;
 	Random r = new Random();
+	private Game game;
 
-	public Controller(Textures tex)
+	public Controller(Textures tex, Game game)
 	{
 		this.tex = tex;
+		this.game = game;
 	}
 	
 	public void createEnemy(int enemy_count)
 	{
 		for(int i = 0; i < enemy_count; i++)
 		{
-			addEntity(new Enemy(r.nextInt(640), -10, tex));
+			addEntity(new Enemy(r.nextInt(640), -10, tex, game, this));
 		}
 	}
 	

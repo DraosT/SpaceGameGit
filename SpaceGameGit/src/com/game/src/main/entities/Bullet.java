@@ -2,6 +2,8 @@ package com.game.src.main.entities;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
+import java.util.LinkedList;
 
 import com.game.src.main.Game;
 import com.game.src.main.classes.EntityA;
@@ -15,6 +17,7 @@ public class Bullet extends GameObject implements EntityA
 	private Textures tex;
 	private Game game;
 	Animation anim;
+	LinkedList<BufferedImage> img = new LinkedList<BufferedImage>();
 	
 	public Bullet(double x, double y, Textures tex, Game game)
 	{
@@ -22,7 +25,10 @@ public class Bullet extends GameObject implements EntityA
 		this.tex = tex;
 		this.game = game;
 		
-		anim = new Animation(1, tex.missile[0], tex.missile[1], tex.missile[2]);
+		for(int i = 0; i < 3; i++)
+			img.add(tex.missile[i]);
+		
+		anim = new Animation(1, img);
 	}
 	
 	public void tick()

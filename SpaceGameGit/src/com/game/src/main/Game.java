@@ -72,7 +72,7 @@ public class Game extends Canvas implements Runnable
 		tex = new Textures(this);
 		
 		p = new Player(200, 200, tex);
-		c = new Controller(tex);
+		c = new Controller(tex, this);
 		
 		ea = c.getEa();
 		eb = c.getEb();
@@ -178,6 +178,12 @@ public class Game extends Canvas implements Runnable
 			p.setVelX(0);
 		}
 		
+		 if(enemy_killed >= enemy_count)
+			{
+			 	enemy_killed = 0;
+				enemy_count+=2;
+				c.createEnemy(enemy_count);
+			}
 	}
 	
 	private void render()

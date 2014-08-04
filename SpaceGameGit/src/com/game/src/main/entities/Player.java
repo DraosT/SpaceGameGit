@@ -2,6 +2,8 @@ package com.game.src.main.entities;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
+import java.util.LinkedList;
 
 import com.game.src.main.classes.EntityA;
 import com.game.src.main.gfx.Animation;
@@ -16,13 +18,18 @@ public class Player extends GameObject implements EntityA
 	private Textures tex;
 	
 	Animation anim;
-	
+	LinkedList<BufferedImage> img = new LinkedList<BufferedImage>();
+
 	public Player(double x, double y, Textures tex)
 	{
 		super(x,y);
 		
 		this.tex = tex;
-		anim = new Animation(5, tex.player[0], tex.player[1], tex.player[2]);
+		
+		for(int i = 0; i < 3; i++)
+			img.add(tex.player[i]);
+		
+		anim = new Animation(5, img);
 	}
 	
 	public void tick()
